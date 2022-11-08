@@ -1,1 +1,2 @@
-# common_algorithms
+# Common algorithms in Python
+ - tasks from leetcode.com
