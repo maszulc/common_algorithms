@@ -9,11 +9,11 @@ Best Time to Buy and Sell Stock
 class Solution:
     def maxProfit(self, prices: list[int]) -> int:
         result = 0
-        left_pointer = 0
-        for right_pointer in range(1, len(prices)):
-            if prices[right_pointer] < prices[left_pointer]:
-                left_pointer = right_pointer
-            result = max(result, prices[right_pointer] - prices[left_pointer])
+        left_ptr = 0
+        for right_ptr in range(1, len(prices)):
+            if prices[left_ptr] > prices[right_ptr]:
+                left_ptr = right_ptr
+            result = max(result, prices[right_ptr] - prices[left_ptr])
         return result
 
 
