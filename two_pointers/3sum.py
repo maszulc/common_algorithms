@@ -1,22 +1,29 @@
 class Solution:
-    def threeSum(self, nums: List[int]) -> List[List[int]]:
+    def threeSum(self, nums: list[int]) -> list[list[int]]:
         res = []
         nums.sort()
-
-        for i, a in enumerate(nums):
-            if i > 0 and a == nums[i - 1]:
+        for i, v in enumerate(nums):
+            if i > 0 and v == nums[i-1]:
                 continue
-
-            l, r = i + 1, len(nums) - 1
-            while l < r:
-                threeSum = a + nums[l] + nums[r]
-                if threeSum > 0:
-                    r -= 1
-                elif threeSum < 0:
-                    l += 1
+            lp, rp = i, len(nums) - 1
+            while lp < rp:
+                triplet = v + nums[lp] + nums[rp]
+                if triplet < 0:
+                    lp += 1
+                elif triplet > 0:
+                    rp -= 1
                 else:
-                    res.append([a, nums[l], nums[r]])
-                    l += 1
-                    while nums[l] == nums[l - 1] and l < r:
-                        l += 1
+                    res.append(
+                        [v, nums[lp], nums[rp]]
+                    )
+                    lp += 1
+                    while lp < rp and nums[lp] == nums[lp-1]:
+                        lp += 1
         return res
+
+
+numbers_list = [-1, 0, 1, 2, -1, -4, 5, 3]
+test_object = Solution()
+res = test_object.threeSum(numbers_list)
+print("Found triplets:")
+print(res)
