@@ -21,7 +21,7 @@ class Solution:
                         lp += 1
         return res
 
-
+# We want to pick three numbers from array and we want to sum them to zero
 numbers_list = [-1, 0, 1, 2, -1, -4, 5, 3]
 test_object = Solution()
 res = test_object.threeSum(numbers_list)
